@@ -15,7 +15,7 @@ jobs:
       - name: Étape 2 - Installer Python sur le serveur
         uses: actions/setup-python@v5
         with:
-          python-version: "3.14" # Parfaitement adapté à ta version locale !
+          python-version: "3.14"
 
       - name: Étape 3 - Installer nos dépendances (pytest)
         run: pip install -r requirements.txt
