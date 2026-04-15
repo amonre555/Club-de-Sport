@@ -1,0 +1,24 @@
+name: Runner de Tests Automatiques (CI)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  Lancer_nos_tests_unitaires:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Étape 1 - Cloner le dépôt GitHub sur le serveur
+        uses: actions/checkout@v4
+
+      - name: Étape 2 - Installer Python sur le serveur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14" # Parfaitement adapté à ta version locale !
+
+      - name: Étape 3 - Installer nos dépendances (pytest)
+        run: pip install -r requirements.txt
+
+      - name: Étape 4 - Lancer la vérification Pytest !
+        run: PYTHONPATH=. pytest tests/
